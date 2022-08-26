@@ -75,3 +75,9 @@ Default values
 ## ToDo 
 
 - [ ] Add support for more type of colour values
+
+- [ ] Add more options (--about/etc)
+
+## Non personal usage 
+
+If you use sdir in anything other than a personal useage please keep this README.md intact 
