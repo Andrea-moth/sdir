@@ -30,6 +30,8 @@ sudo mv path-to-sdir /usr/bin
 
 > If there is a better way of doing this please let me know
 
+You can then delete the rest of the files, if you are not using this personally please check the [Non personal usage section](https://github.com/Andrea-moth/sdir/edit/main/README.md#non-personal-usage)
+
 I would also recomend adding 
 
 ```
