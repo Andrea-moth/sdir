@@ -4,7 +4,7 @@ Created by [@Andrea-moth](https://github.com/Andrea-moth)
 
 Discord: Ranni simp#2453
 
-**This was coded for linux, the colour scheme will break on Windows or Mac**
+**This was coded for linux, the colour scheme will break on Windows**
 
 ---
 
@@ -28,7 +28,7 @@ Use
 sudo mv path-to-sdir /usr/bin
 ```
 
-> If there is a better way of doing this please let me know
+> This will not work on windows, please let me know if you find anything simmilar
 
 You can then delete the rest of the files, please check the [non personal usage section](https://github.com/Andrea-moth/sdir/edit/main/README.md#non-personal-usage) to see if it applies to you
 
