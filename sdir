@@ -15,34 +15,34 @@ console = Console()
 CONFIGPATH = path.join(path.expanduser("~"), ".config", "sdir_colours.json")
 if not path.exists(CONFIGPATH):
 	with open(CONFIGPATH, "w") as file:
-		json.dump({"folder":"#d787ff", "file":"#123456", "title":"#af005f", "outline":"#afafaf"}, file, indent=3)
+		json.dump({"folder":"#123456", "file":"#d787ff", "title":"#af005f", "outline":"#afafaf"}, file, indent=3)
 colours = json.loads(open(CONFIGPATH).read())
 
 def set_colours():
-	console.print("Set colour [FILE/FOLDER/BORDER/TITLE] -- ", end="", style=colours["title"])
-	set_colour = str(input())
+	console.print("Set colour [FILE/FOLDER/OUTLINE/TITLE] -- ", end="", style=colours["title"])
+	set_colour = str(input()).lower()
 
-	if set_colour not in {"file", "folder", "border", "title"}:
+	if set_colour not in {"file", "folder", "outline", "title"}:
 		return
 
 	console.print("Hex value -- ", style=colours["title"], end=" ")
-	colour = str(input())
-
+	
+	colour = str(input()).lower()
 	if not len(colour) == 6:
 		console.print("Hex value not reconised", style=colours["title"])
 		return
-	
+
 	try:
 		console.print("Colour set", style=f"#{colour}")
-	except Exception as e:
-		console.print("Colour not recognised", style=colours["title"])
+	except MissingStyle:
+		console.print("Hex value recognised", style=colours["title"])
 		return
 
 	colours[set_colour] = f"#{colour}"
 	try:
 		with open(CONFIGPATH, "w") as file:
 			file.seek(0)
-			json.dump(colours, file)
+			json.dump(colours, file, indent=3)
 	except Exception as e:
 		console.print("Config file corrupted, please delete ~/.config/sdir_colours.json then run script again")
 
@@ -85,9 +85,9 @@ def main(
 			files.append([item, file_type])
 
 	for folder in folders:
-		tree_directory.add(folder, style=colours["file"])
+		tree_directory.add(folder, style=colours["folder"])
 	for file in files:
-		tree_directory.add(f"{file[0]} - {file[1].split()[0].capitalize()}", style=colours["folder"])
+		tree_directory.add(f"{file[0]} - {file[1].split()[0].capitalize()}", style=colours["file"])
 
 	console.print(Panel(tree_directory, title=f"[{colours['title']}]{directory.replace(path.expanduser('~'), '~')}", expand=True, border_style=colours["outline"]))
 
