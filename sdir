@@ -1,0 +1,95 @@
+#!/usr/bin/env python
+
+import os
+import json
+import typer
+from os import path
+from magic import from_file
+from rich.tree import Tree
+from rich.console import Console
+from rich.panel import Panel
+
+app = typer.Typer()
+console = Console()
+
+CONFIGPATH = path.join(path.expanduser("~"), ".config", "sdir_colours.json")
+if not path.exists(CONFIGPATH):
+	with open(CONFIGPATH, "w") as file:
+		json.dump({"folder":"#d787ff", "file":"#123456", "title":"#af005f", "outline":"#afafaf"}, file, indent=3)
+colours = json.loads(open(CONFIGPATH).read())
+
+def set_colours():
+	console.print("Set colour [FILE/FOLDER/BORDER/TITLE] -- ", end="", style=colours["title"])
+	set_colour = str(input())
+
+	if set_colour not in {"file", "folder", "border", "title"}:
+		return
+
+	console.print("Hex value -- ", style=colours["title"], end=" ")
+	colour = str(input())
+
+	if not len(colour) == 6:
+		console.print("Hex value not reconised", style=colours["title"])
+		return
+	
+	try:
+		console.print("Colour set", style=f"#{colour}")
+	except Exception as e:
+		console.print("Colour not recognised", style=colours["title"])
+		return
+
+	colours[set_colour] = f"#{colour}"
+	try:
+		with open(CONFIGPATH, "w") as file:
+			file.seek(0)
+			json.dump(colours, file)
+	except Exception as e:
+		console.print("Config file corrupted, please delete ~/.config/sdir_colours.json then run script again")
+
+@app.command()
+def main(
+	directory:str=typer.Argument("./"),
+	hidden:bool=typer.Option(
+			False,
+			"-a",
+			"--all",
+			help="Shows all files and folder uncluding those that begin with ."
+		),
+	config:bool=typer.Option(
+			False,
+			"-c",
+			"--config",
+			help="Lets you configure the colours"
+		)
+	):
+	if config:
+		set_colours()
+		return
+
+	directory = path.abspath(directory)
+	tree_directory = Tree(path.split(directory)[1], style=colours["title"])
+	files = []
+	folders = []
+
+	for item in os.listdir(directory):
+		if item.startswith(".") and not hidden:
+			continue
+		itempath = path.join(directory, item)
+		if path.isdir(itempath):
+			folders.append(item)
+		elif path.isfile(itempath):
+			try:
+				file_type = from_file(itempath)
+			except PermissionError:
+				file_type = "Permission Denied"
+			files.append([item, file_type])
+
+	for folder in folders:
+		tree_directory.add(folder, style=colours["file"])
+	for file in files:
+		tree_directory.add(f"{file[0]} - {file[1].split()[0].capitalize()}", style=colours["folder"])
+
+	console.print(Panel(tree_directory, title=f"[{colours['title']}]{directory.replace(path.expanduser('~'), '~')}", expand=True, border_style=colours["outline"]))
+
+if __name__ == "__main__":
+	app()
