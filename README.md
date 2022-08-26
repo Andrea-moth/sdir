@@ -82,4 +82,8 @@ Default values
 
 ## Non personal usage 
 
-If you use sdir in anything other than a personal useage please keep this README.md intact 
+If you use sdir in anything other than a personal useage please also use
+
+```
+sudo mv path-to-readme /usr/bin/sdir
+```
