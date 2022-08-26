@@ -30,7 +30,7 @@ sudo mv path-to-sdir /usr/bin
 
 > If there is a better way of doing this please let me know
 
-You can then delete the rest of the files, if you are not using this personally please check the [Non personal usage section](https://github.com/Andrea-moth/sdir/edit/main/README.md#non-personal-usage)
+You can then delete the rest of the files, please check the [non personal usage section](https://github.com/Andrea-moth/sdir/edit/main/README.md#non-personal-usage) to see if it applies to you
 
 I would also recomend adding 
 
@@ -82,7 +82,7 @@ Default values
 
 ## Non personal usage 
 
-If you use sdir in anything other than a personal useage please also use
+If you use sdir in anything other than a personal useage (i.e. Installing on any computer that isn't your own) please also use
 
 ```
 sudo mv path-to-readme /usr/bin/sdir
