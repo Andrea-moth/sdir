@@ -11,6 +11,7 @@ Discord: Ranni simp#2453
 ![preview](https://imgur.com/8s1Udli)
 
 > For some reason I can't display this as a gif in the readme
+> 
 > Please send help
 
 ## Index
