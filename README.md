@@ -8,7 +8,7 @@ Discord: Ranni simp#2453
 
 ---
 
-Video preview to come later
+![preview](https://imgur.com/8s1Udli.gif)
 
 ## Index
 
