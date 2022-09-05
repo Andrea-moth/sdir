@@ -16,13 +16,13 @@ Discord: Ranni simp#2453
 
 ## Index
 
-- [Installation](https://github.com/Andrea-moth/sdir/edit/main/README.md#installation)
+- [Installation](https://github.com/Andrea-moth/sdir/blob/main/README.md#installation)
 
-- [Usage](https://github.com/Andrea-moth/sdir/edit/main/README.md#usage)
+- [Usage](https://github.com/Andrea-moth/sdir/blob/main/README.md#usage)
 
-- [Config](https://github.com/Andrea-moth/sdir/edit/main/README.md#config)
+- [Config](https://github.com/Andrea-moth/sdir/blob/main/README.md#config)
 
-- [ToDo](https://github.com/Andrea-moth/sdir/edit/main/README.md#todo)
+- [ToDo](https://github.com/Andrea-moth/sdir/blob/main/README.md#todo)
 
 ## Installation 
 
