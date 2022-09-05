@@ -34,7 +34,7 @@ sudo mv path-to-sdir /usr/bin
 
 > This will not work on windows, please let me know if you find anything simmilar
 
-You can then delete the rest of the files, please check the [non personal usage section](https://github.com/Andrea-moth/sdir/edit/main/README.md#non-personal-usage) to see if it applies to you
+You can then delete the rest of the files, please check the [non personal usage section](https://github.com/Andrea-moth/sdir/blob/main/README.md#non-personal-usage) to see if it applies to you
 
 I would also recomend adding 
 
