@@ -8,7 +8,7 @@ Discord: Ranni simp#2453
 
 ---
 
-![preview](https://imgur.com/s4XKY8s)
+[preview](https://imgur.com/s4XKY8s)
 
 > For some reason I can't display this as a gif in the readme
 > 
